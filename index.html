@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>form</title>
+<style>
+*{
+	margin:0; 
+	padding:0;
+	box-sizing:border-box;
+}
+.user-forms{
+	width:350px;
+	padding:10px 15px;
+	border:1px solid #ccc;
+	border-radius:5px;
+	margin:20px auto 0;
+	background-color:#ccc;
+}
+.user-forms h2{
+	margin-bottom:15px;
+}
+.form-control{
+	margin-bottom:20px;
+}
+.form-control{
+	width:100%;
+	padding:10px;
+	border-radius:5px;
+	height:40px;
+	border:1px solid gray;
+}
+.pass{
+	width:100%;
+	padding:10px;
+	border-radius:5px;
+	height:40px;
+	border:1px solid gray;
+	margin-bottom:20px;
+}
+.con-pass{
+	width:100%;
+	padding:10px;
+	border-radius:5px;
+	height:40px;
+	border:1px solid gray;
+	margin-bottom:20px;
+}
+.form-control:focus{
+	outline:0;
+	border:#999;
+}
+
+.error-msg{
+	color:red;
+	display:none;
+}
+.invalid-input{
+	display:block !important;
+}
+.btn{
+	display:inline-block;
+	border-radius:5px;
+	border:1px solid blue;
+	padding:8px 25px;
+	background-color:blue;
+	color:#fff;
+	font-size:16px;
+	cursor:pointer;
+	
+}
+
+</style>
+</head>
+<body>
+
+<div class="user-forms">
+	<form id="forms">
+		<h2>Sign Up Form</h2>
+		<div class="form-group">
+			<input type="text" name="username" placeholder="Enter Your First Name." class="form-control" />
+			<p class="error-msg">Please Enter your first name...!</p>
+		</div>
+		<div class="form-group">
+			<input type="text" name="username" placeholder="Enter Your Last Name." class="form-control" />
+			<p class="error-msg">Please Enter your Last name...!</p>
+		</div>
+		<div class="form-group">
+			<input type="email" name="useremail" placeholder="Enter Your Email." class="form-control" />
+			<p class="error-msg">Please Enter your Email...!</p>
+		</div>
+		<div class="form-group">
+			<input type="Number" name="phnnumber" placeholder="Enter Your Phone Number." class="form-control" />
+			<p class="error-msg">Please Enter your Phone Number...!</p>
+		</div>
+		<div class="form-group">
+			<input type="password" name="password" placeholder="Enter Your Password." class="pass" />
+			<p class="error-msg">Please Enter your password...!</p>
+		</div>
+		<div class="form-group">
+			<input type="password" name="confpassword" placeholder="Confirm Password." class="con-pass" />
+			<p class="error-msg">Please Enter your Confirm password...!</p>
+		</div>
+		<button type="button" onclick="onSignUp()" class="btn">Sign Up</button>
+	</form>
+</div>
+<script>
+	let inputs = document.getElementsByClassName("form-control");
+	let getPassword = document.getElementsByClassName("pass");
+	let confpass = document.getElementsByClassName("con-pass");
+	
+	function onSignUp(event){
+		
+		 
+		let isValid;
+		for(let x=0; x < inputs.length; x++){
+			isValid=0;
+			if(inputs[x].value === ""){
+				inputs[x].parentNode.getElementsByTagName("p")[0].classList.add("invalid-input");
+				isValid++;
+			}
+			else{
+				inputs[x].parentNode.getElementsByTagName("p")[0].classList.remove("invalid-input");
+				
+			}
+		}
+		
+		if(isValid == 0){
+			if(getPassword.value.length < 6){
+				document.getElementsByClassName("password-msg")[0].classList.add("invalid-input");
+			}
+			else{
+				document.getElementsByClassName("password-msg")[0].classList.remove("invalid-input");
+			
+			if(getPassword.value !== confpass.value){
+				document.getElementsByClassName("password-msg")[0].classList.add("invalid-input");
+			}
+			else{
+				document.getElementsByClassName("password-msg")[0].classList.remove("invalid-input");
+				}
+			}
+		}		
+	}
+	
+	let userObject = {
+			id:Math.random().toString(),
+			name:firstName.value,
+			surname:secName.value,
+			mailId: mailId.value,
+			phoneNumber:phoneNum.value
+			
+		
+		}
+		array.push(userObject);
+		console.log(array)
+	}
+	
+	
+	
+	
+	
+	let webform = document.getElementById("forms");
+	webform.addEventListener("submit", function(event){
+	event.preventDefault();
+	
+	})
+	
+	
+</script>
+</body>
+</html>
